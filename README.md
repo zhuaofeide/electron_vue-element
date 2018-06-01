@@ -1,22 +1,30 @@
 # project
 
-> electron-vue
+> one electron-vue project
+
+#### project des
+``` bash
+# 基于electron_vue
+    electron_vue打包
+# 基于vue全家桶
+     axios+vue-router+vuex       
+```
 
 #### Build Setup
 
 ``` bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload at localhost:9080
-npm run dev
+yarn run dev
 
 # build electron application for production
-npm run build
+yarn run build
 
 
 # lint all JS/Vue component files in `src/`
-npm run lint
+yarn run lint
 
 ```
 
