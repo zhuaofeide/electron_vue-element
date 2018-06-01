@@ -1,0 +1,228 @@
+<link rel="stylesheet" type="text/css" href="./css/index.css"/>
+<script src="./js/axios.min.js"></script>
+<script src="./js/vue.min.js"></script>
+<div id="app">
+    <div class="page" v-for="(item, index) in obj" :key="index">
+        <div class="report-wrapper">
+            <!--报告标题-->
+            <div class="title">
+                <span>&nbsp;</span>
+                <div class="title-name" >
+                    <p class="hospital_name">南医大·清影病理诊断中心</p>
+                    <p>宫颈 / 阴道 液基薄层细胞学检查报告</p>
+                </div>
+                <p class="create">
+                    <i>&nbsp;</i>
+                </p>
+            </div>
+
+            <!--条形码-->
+            <div class="code">
+                <div>
+                    <p>
+                        <span>条形码：</span>
+                        <span></span>
+                    </p>
+                    <span>&nbsp;</span>
+                </div>
+                <div >
+                    <span>&nbsp;</span>
+                    <p>
+                        <span>病理号：</span>
+                        <span>{{item.information.case_number | msgFun}}</span>
+                    </p>
+                </div>
+            </div>
+
+            <p class="line"></p>
+
+            <!--病人信息-->
+            <div class="userMsg">
+                <ul>
+                    <li class="userName">
+                        <p>
+                            <label for="">姓名:</label>
+                            <span>{{item.information.name | msgFun}}
+                        </span>
+                        </p>
+                        <p>
+                            <label for="">性别:</label>
+                            <span >女</span>
+                        </p>
+
+                        <p>
+                            <label for="">年龄:</label>
+                            <span>{{item.information.age | msgFun}}</span>
+                        </p>
+
+                        <p>
+                            <label for="">病人ID:</label>
+                            <span>{{item.information.id | msgFun}}</span>
+                        </p>
+                    </li>
+                    <li class="userName">
+                        <p>
+                            <label for="">送检科室:</label>
+                            <span>无</span>
+                        </p>
+                        <p>
+                            <label for="">送检医师:</label>
+                            <span>无</span>
+                        </p>
+                        <p>
+                            <label for="">门诊/住院号:</label>
+                            <span>{{item.information.accession_meterial | msgFun}}</span>
+                        </p>
+
+                        <p>
+                            <label for="">采样日期:</label>
+                            <span>{{item.information.sampling_date | timeFun}}</span>
+                        </p>
+                    </li>
+                    <li class="userName">
+                        <p>
+                            <label for="">临床所见:</label>
+                            <span>{{item.information.clinical_findings | msgFun}}</span>
+                        </p>
+                        <p>
+                            &nbsp;
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <!--报告详细-->
+            <div class="select-box">
+                <div class="select-bg">
+                    <div class="doc-result">
+                        <p class="doc-msg">细胞学标本：</p>
+                        <div class="result-text">
+                            <span v-if="item.sample_quality.satisfaction">满意</span>
+                            <span v-else-if="item.sample_quality.notsatisfied">不满意</span>
+                            <span v-else>满意</span>
+                            <p>
+                                <span v-if="item.sample_quality.cervical">{{item.sample_quality.cervical | msgFun}}</span>
+                                <span v-else-if="item.sample_quality.quantity">{{item.sample_quality.quantity | msgFun}}</span>
+                                <span v-else>见宫颈管 / 移行区成分</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="doc-result">
+                        <p class="doc-msg">细胞镜检查：</p>
+                        <p class="result-text">{{item.suggestion | msgFun}}</p>
+                    </div>
+                    <!--图片截图-->
+                    <div class="cut-img">
+                        <p>&nbsp;</p>
+                        <ul>
+                            <li v-for="(img, index) in item.images" :key="index" v-if="index<=3">
+                                <img :src="img.raw_file_path" alt="">
+                            </li>
+                        </ul>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="doc-result doc-result-last">
+                        <p class="doc-msg">细胞学诊断</p>
+                        <p class="result-text">
+                            {{item.comment | msgFun}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--医生签名-->
+            <div class="doc-signature">
+                <p><span>筛查医生：</span><span></span></p>
+                <p><span>诊断医生：</span><span></span></p>
+                <p><span>复查医生：</span><span></span></p>
+                <p><span>签发医生：</span><span>{{item.sign_doctor | msgFun}}</span></p>
+                <p><span>报告日期：</span><span></span></p>
+            </div>
+
+            <div class="doc-link">
+                <p class="other_text">
+                    注：送检医生对本诊断有疑问，请立即与本科有关医生联系(电话：25631456)
+                </p>
+            </div>
+
+            <div class="counts">
+                <span>第 {{index + 1}} 页</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  new Vue({
+    el:'#app',
+    data: {
+      tokens: 'JWT ' + JSON.parse(localStorage.getItem('tokenData')).token,
+      reportUrl: 'http://192.168.1.34/api/v1/results/',
+      userMsg: '',
+      comment: '',
+      miniImg: [],
+      sample_quality: '满意，见宫颈管 / 移行区成分',
+      satisfaction: '满意',
+      suggestions: '',
+      quantity: '',
+      obj: []
+    },
+    filters: {
+      // 过滤无信息状态
+      msgFun(value) {
+        if (value === '') {
+          let texts = '无'
+          return texts
+        }
+        if (value === []) {
+          let texts = '无'
+          return texts
+        }
+        if (value === null) {
+          let texts = '无'
+          return texts
+        }
+        return value
+      },
+//      时间过滤
+      timeFun(value) {
+        if (value) {
+          return value.substring(0, 10)
+        } else {
+          return '无'
+        }
+      }
+    },
+    created() {
+      this.$nextTick(() => {
+        this.getReport()
+      })
+    },
+    methods: {
+      getReport() {
+        let that = this
+        let storeIds = JSON.parse(localStorage.getItem('reportId'))
+        if (storeIds.length > 1) {
+          storeIds.forEach((item, index, arr) => {that.getDta(item)})
+          return
+        }
+        that.getDta(storeIds)
+//        console.log(that.obj)
+      },
+      getDta(id) {
+        let that = this
+        axios({
+          method:'get',
+          url: that.reportUrl + id,
+          headers:{'Authorization': that.tokens}
+        })
+          .then(function(res) {
+            that.obj.push(res.data)
+//            console.log(res.data)
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+      }
+    }
+  })
+</script>

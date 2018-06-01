@@ -1,0 +1,536 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  color: #fff;
+  -webkit-backface-visibility: hidden;
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body,
+html {
+  line-height: 1;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '\5FAE\8F6F\96C5\9ED1', Arial, sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: #f7f7f7;
+  color: #292c31;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?ihdqs0");
+  src: url("../fonts/icomoon.eot?ihdqs0#iefix") format('embedded-opentype'), url("../fonts/icomoon.ttf?ihdqs0") format('truetype'), url("../fonts/icomoon.woff?ihdqs0") format('woff'), url("../fonts/icomoon.svg?ihdqs0#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+/* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+/* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-home:before {
+  content: "\e900";
+}
+.icon-office:before {
+  content: "\e903";
+}
+.icon-paint-format:before {
+  content: "\e90c";
+}
+.icon-image:before {
+  content: "\e90d";
+}
+.icon-images:before {
+  content: "\e90e";
+}
+.icon-camera:before {
+  content: "\e90f";
+}
+.icon-music:before {
+  content: "\e911";
+}
+.icon-film:before {
+  content: "\e913";
+}
+.icon-podcast:before {
+  content: "\e91c";
+}
+.icon-feed:before {
+  content: "\e91d";
+}
+.icon-books:before {
+  content: "\e920";
+}
+.icon-files-empty:before {
+  content: "\e925";
+}
+.icon-file-text2:before {
+  content: "\e926";
+}
+.icon-file-zip:before {
+  content: "\e92b";
+}
+.icon-copy:before {
+  content: "\e92c";
+}
+.icon-folder:before {
+  content: "\e92f";
+}
+.icon-folder-open:before {
+  content: "\e930";
+}
+.icon-folder-plus:before {
+  content: "\e931";
+}
+.icon-undo2:before {
+  content: "\e967";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-users:before {
+  content: "\e972";
+}
+.icon-user-plus:before {
+  content: "\e973";
+}
+.icon-user-tie:before {
+  content: "\e976";
+}
+.icon-spinner3:before {
+  content: "\e97c";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-zoom-in:before {
+  content: "\e987";
+}
+.icon-zoom-out:before {
+  content: "\e988";
+}
+.icon-enlarge:before {
+  content: "\e989";
+}
+.icon-shrink:before {
+  content: "\e98a";
+}
+.icon-enlarge2:before {
+  content: "\e98b";
+}
+.icon-shrink2:before {
+  content: "\e98c";
+}
+.icon-equalizer:before {
+  content: "\e992";
+}
+.icon-magic-wand:before {
+  content: "\e997";
+}
+.icon-stats-dots:before {
+  content: "\e99b";
+}
+.icon-stats-bars:before {
+  content: "\e99c";
+}
+.icon-stats-bars2:before {
+  content: "\e99d";
+}
+.icon-leaf:before {
+  content: "\e9a4";
+}
+.icon-rocket:before {
+  content: "\e9a5";
+}
+.icon-hammer2:before {
+  content: "\e9a8";
+}
+.icon-flag:before {
+  content: "\e9cc";
+}
+.icon-bookmark:before {
+  content: "\e9d2";
+}
+.icon-bookmarks:before {
+  content: "\e9d3";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-checkmark:before {
+  content: "\ea10";
+}
+.icon-crop:before {
+  content: "\ea57";
+}
+.icon-ungroup:before {
+  content: "\ea59";
+}
+.icon-scissors:before {
+  content: "\ea5a";
+}
+.icon-paragraph-left:before {
+  content: "\ea77";
+}
+.icon-steam:before {
+  content: "\eaac";
+}
+.icon-git:before {
+  content: "\eae7";
+}
+html {
+  background: #f7f7f7;
+}
+html #app .page {
+  page-break-after: always;
+  margin-bottom: 10px;
+}
+html #app .page .report-wrapper {
+  width: 595px;
+  background: #fff;
+  padding: 10px;
+  margin: 0 auto;
+}
+html #app .page .title {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  cursor: pointer;
+}
+html #app .page .title .title-name {
+  text-align: center;
+}
+html #app .page .title .title-name p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.8rem;
+  color: #333;
+}
+html #app .page .title .title-name .hospital_name {
+  color: #e85e72;
+}
+html #app .page .title .create {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+html #app .page .title .create i {
+  height: 1px;
+}
+html #app .page .code {
+  display: flex;
+  justify-content: space-between;
+}
+html #app .page .code div {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+}
+html #app .page .code div span {
+  width: 50%;
+}
+html #app .page .code div p {
+  flex: 1 0 auto;
+}
+html #app .page .code div p span {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+html #app .page .line {
+  border: 1px solid #000;
+  width: 100%;
+}
+html #app .page .userMsg {
+  padding: 3px 0;
+}
+html #app .page .userMsg ul {
+  border-top: 1px solid #787474;
+  border-bottom: 1px solid #787474;
+  padding: 5px 0;
+}
+html #app .page .userMsg ul li {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  padding: 5px 0;
+  color: #000;
+}
+html #app .page .userMsg ul .userName {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+}
+html #app .page .qul {
+  display: flex;
+  border-bottom: 1px solid #787474;
+  padding: 5px 0;
+}
+html #app .page .qul .qui-title {
+  width: 70px;
+  color: #000;
+}
+html #app .page .qul .qui-title p {
+  font-size: 0.8rem;
+  line-height: 1.4rem;
+}
+html #app .page .qul .qul-box {
+  flex: 1 1 auto;
+  pointer-events: none;
+}
+html #app .page .qul .qul-box .qul-content {
+  display: flex;
+  justify-content: space-between;
+}
+html #app .page .qul .qul-box .qul-content li,
+html #app .page .qul .qul-box .qul-content .ivu-checkbox-group {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: #000;
+  font-size: 0.75rem;
+  line-height: 1.4rem;
+}
+html #app .page .qul .qul-box .qul-content li .middle,
+html #app .page .qul .qul-box .qul-content .ivu-checkbox-group .middle {
+  font-size: 0.75rem;
+  line-height: 1.4rem;
+}
+html #app .page .qul .qul-box .qul-content .qul-item3 {
+  padding-right: 15px;
+}
+html #app .page .qul .qul-box .qul-content .status {
+  width: 50px;
+}
+html #app .page .select-box .select-bg {
+  padding: 8px 0;
+  border-bottom: 1px solid #787474;
+}
+html #app .page .select-box .select-bg .slect-items {
+  display: flex;
+  flex-wrap: wrap;
+  pointer-events: none;
+}
+html #app .page .select-box .select-bg .slect-items li {
+  width: 45%;
+}
+html #app .page .select-box .select-bg .slect-items li .item-scales {
+  display: flex;
+}
+html #app .page .select-box .select-bg .slect-items .item .item-name .item-purple {
+  font-size: 0.75rem;
+  line-height: 1.4rem;
+  display: inline-block;
+  width: 85px;
+  text-align: right;
+  color: #00ca9d;
+}
+html #app .page .select-box .select-bg .slect-items .item3 {
+  margin-top: 0;
+}
+html #app .page .select-box .select-bg .slect-items .item5 {
+  margin-top: 0;
+}
+html #app .page .select-box .select-bg .cut-img {
+  display: flex;
+  justify-content: space-between;
+}
+html #app .page .select-box .select-bg .cut-img ul {
+  display: flex;
+  padding: 10px 0;
+  width: 90%;
+  flex-wrap: wrap;
+  min-height: 380px;
+}
+html #app .page .select-box .select-bg .cut-img ul li {
+  width: 46%;
+  padding: 10px;
+  height: 200px;
+}
+html #app .page .select-box .select-bg .cut-img ul li img {
+  width: 100%;
+  height: 100%;
+}
+html #app .page .select-box .select-bg .doc-result {
+  color: #000;
+}
+html #app .page .select-box .select-bg .doc-result-last {
+  padding-bottom: 30px;
+}
+html #app .page .select-box .select-bg .doc-msg {
+  font-size: 1rem;
+  line-height: 2rem;
+  color: #e85e72;
+}
+html #app .page .select-box .select-bg .result-text {
+  padding: 5px 20px;
+  border: 0;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+html #app .page .doc-signature {
+  display: flex;
+  border-bottom: 1px solid #787474;
+}
+html #app .page .doc-signature p {
+  flex: 1;
+  color: #000;
+  line-height: 1.5rem;
+}
+html #app .page .doc-signature p span {
+  font-size: 0.8rem;
+}
+html #app .page .doc-link .other_text {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+  color: #b0b0b0;
+}
+html #app .page .counts {
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.5rem;
+  color: #b0b0b0;
+}
+@media print {
+  html #app .counts {
+    display: none;
+  }
+  html #app .other_text {
+    color: #b0b0b0;
+  }
+}
+@page {
+  size: A4;
+}
